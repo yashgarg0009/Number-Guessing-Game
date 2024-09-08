@@ -1,0 +1,44 @@
+// number guessing game
+/* we will write a program that generates random number and asks the player to guess the number . if the player guesses the higher
+than an actual number, the program displays : lower number please similarly if uder guesses lower number program displays higher 
+number please 
+when the user guesses the correct number , the program will tell the user in how many attempts user guess the actual number*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    // Seed the random number generator with the current time
+    srand(time(0));
+
+    // Generate a random number
+    int randomNumber = (rand() % 100)+1;
+    int no_of_guesses = 0;
+    int guessed_number;
+
+    // Print the generated random number
+    // printf("Generated Random Number: %d\n", randomNumber);
+
+do{
+printf("Guess the number : ");
+scanf("%d", &guessed_number);
+if(guessed_number>randomNumber){
+    printf("lower your number please \n ");
+} 
+
+else if(guessed_number<randomNumber){
+    printf("Higher your number please \n ");
+} 
+
+else{
+    printf("congrats !! \n");
+}
+no_of_guesses++;
+
+}while(guessed_number!=randomNumber);
+
+    printf("You guessed the number in : %d guesses \n" , no_of_guesses);
+    
+    return 0;
+}
